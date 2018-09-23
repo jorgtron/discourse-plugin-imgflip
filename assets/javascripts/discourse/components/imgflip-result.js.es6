@@ -20,6 +20,6 @@ export default Ember.Component.extend({
   }.property("result"),
 
   imagePath: function() {
-    return this.get("result.url");
+    return this.get("result.url").replace("http", "https");
   }.property("result.url", "selectedMeme")
 });
