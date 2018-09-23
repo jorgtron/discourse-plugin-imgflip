@@ -19,9 +19,9 @@ export default Ember.Controller.extend(ModalFunctionality, {
         "&text0=" + topText + "&text1=" + bottomText }).done(
           function(resp) {
             if (self.composerViewOld)
-              self.composerViewOld.addMarkdown("![](" + resp.data.url + ")");
+              self.composerViewOld.addMarkdown("![](" + resp.data.url.replace("http:", "https:") + ")");
             else if (self.composerView)
-              self.composerView._addText(self.composerView._getSelected(), "![](" + resp.data.url + ")");
+              self.composerView._addText(self.composerView._getSelected(), "![](" + resp.data.url.replace("http:", "https:") + ")");
           }
       );
       this.set("selectedMeme", undefined);
